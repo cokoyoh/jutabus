@@ -14,7 +14,7 @@
     <div class="container">
         Hello <b>Admin</b>,
         <p>
-           <b>{{ $name }}</b> of phone number <b>{{ $phone_number }}</b> sent you a message via <a href="http://www.sharper-innovations.co.ke">sharper-innovations.co.ke</a> contact form. Here is the message...
+           <b>{{ $name }}</b> of phone number <b>{{ $phone_number }}</b> sent you a message via <a href="http://www.justabus.com">justabus.com</a> contact form. Here is the message...
         </p>
         <div class="container">
             <p>{{ $user_message }}</p>
