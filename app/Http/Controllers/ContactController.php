@@ -19,7 +19,7 @@ class ContactController extends Controller
             ), function($message)
             {
                 $sender = request('email');
-                $receiver = 'info@sharper-innovations.co.ke';
+                $receiver = 'info@justabus.com';
                 $message->from($sender);
                 $message->to($receiver , 'Admin')->subject('Website Email');
             });

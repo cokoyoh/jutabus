@@ -101,11 +101,4 @@ class UserController extends Controller
 
         return response(['message' => 'User registered successfully!'],200);
     }
-
-    public function getUserProjects()
-    {
-        $user =  Auth::user();
-        $projects = Project::where('id','=',$user->id)->with('feedbacks')->get();
-        return response(['data' => $projects],200);
-    }
 }
