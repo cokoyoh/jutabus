@@ -95,6 +95,7 @@ class UserController extends Controller
             'name' => request('name'),
             'email' => request('email'),
             'password' => bcrypt(request('password')),
+            'remember_token' => str_random(10),
         ]);
         $roleId = Role::where('name', 'client')->first()->id;
         $user->roles()->attach($roleId,['created_at'=>Carbon::now(),'updated_at'=>Carbon::now()]);

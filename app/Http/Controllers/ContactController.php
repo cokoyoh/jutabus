@@ -11,16 +11,16 @@ class ContactController extends Controller
     public function getMessage()
     {
         Mail::send('mails.contact-us',
-            array(
+            [
                 'name' => request('full_name'),
                 'email' => request('email'),
                 'phone_number' => request('phone_number'),
                 'user_message' => request('text')
-            ), function($message)
+            ], function($message)
             {
                 $sender = request('email');
                 $receiver = 'info@justabus.com';
-                $message->from($sender);
+                $message->from($sender, request('full_name'));
                 $message->to($receiver , 'Admin')->subject('Website Email');
             });
 
