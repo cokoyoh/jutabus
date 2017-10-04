@@ -5,7 +5,7 @@ use Illuminate\Database\Seeder;
 
 class StatesTableSeeder extends Seeder
 {
-    private $fields = ['completed','uncompleted'];
+    private $fields = ['available','unavailable'];
     /**
      * Run the database seeds.
      *
