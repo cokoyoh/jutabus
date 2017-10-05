@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Car;
 use App\State;
-use Illuminate\Http\Request;
 
 class CarController extends Controller
 {
@@ -37,7 +36,7 @@ class CarController extends Controller
 
     public function update($id)
     {
-        $car = Car::findOrFail($id);
+        $car = Car::find($id);
         $car->plate_number = request('plate_number');
         $car->model = request('model');
         $car->capacity = request('capacity');

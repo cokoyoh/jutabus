@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Transport;
 use Carbon\Carbon;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class TransportController extends Controller
@@ -36,18 +35,18 @@ class TransportController extends Controller
             'user_id' => Auth::user()->id,
             'cost' => request('cost')
         ]);
-        return response(['message' => 'Transportation has been reserved']);
+        return response(['message' => 'Transportation has been reserved'],200);
     }
 
     public function show($id)
     {
-        $transportation = Transport::findOrFail($id);
+        $transportation = Transport::find($id);
         return response(['data' => $transportation],200);
     }
 
     public function update($id)
     {
-        $transportation = Transport::findOrFail($id);
+        $transportation = Transport::find($id);
         $transportation->name_of_good = request('name_of_good');
         $transportation->origin = request('origin');
         $transportation->destination = request('destination');
@@ -58,7 +57,7 @@ class TransportController extends Controller
 
     public function destroy($id)
     {
-        $transportation = Transport::findOrFail($id);
+        $transportation = Transport::find($id);
         $transportation->delete();
         return response(['message' => 'Transportation has been deleted!'],200);
     }

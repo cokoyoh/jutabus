@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Booking;
 use Carbon\Carbon;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class BookingController extends Controller
@@ -34,7 +33,7 @@ class BookingController extends Controller
             'days' => request('days'),
             'cost' => request('cost')
         ]);
-        return response(['message' => 'You have successfully booked a car for hire.']);
+        return response(['message' => 'You have successfully booked a car for hire.'],200);
     }
 
     public function update($id)
@@ -54,8 +53,8 @@ class BookingController extends Controller
 
     public function destroy($id)
     {
-        $booking = Booking::findOrFail($id);
+        $booking = Booking::find($id);
         $booking->delete();
-        return response(['message' => 'Booking record deleted!']);
+        return response(['message' => 'Booking record deleted!'],200);
     }
 }
