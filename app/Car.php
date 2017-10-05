@@ -17,4 +17,9 @@ class Car extends Model
     {
         return $this->hasOne(Booking::class);
     }
+
+    public function state()
+    {
+        return $this->belongsTo(State::class);
+    }
 }
