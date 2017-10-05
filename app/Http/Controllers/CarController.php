@@ -35,6 +35,17 @@ class CarController extends Controller
         return response(['message' => 'Car record added successfully'],200);
     }
 
+    public function update($id)
+    {
+        $car = Car::findOrFail($id);
+        $car->plate_number = request('plate_number');
+        $car->model = request('model');
+        $car->capacity = request('capacity');
+        $car->state_id = request('state_id');
+        $car->save();
+        return response(['message' => 'Car record updated successfully'],200);
+    }
+
     public function showCar($id)
     {
         $car = Car::findOrFail($id);

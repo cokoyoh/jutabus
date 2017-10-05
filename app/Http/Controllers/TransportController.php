@@ -45,6 +45,17 @@ class TransportController extends Controller
         return response(['data' => $transportation],200);
     }
 
+    public function update($id)
+    {
+        $transportation = Transport::findOrFail($id);
+        $transportation->name_of_good = request('name_of_good');
+        $transportation->origin = request('origin');
+        $transportation->destination = request('destination');
+        $transportation->cost = request('cost');
+        $transportation->save();
+        return response(['message' => 'Transportation record updated successfully'],200);
+    }
+
     public function destroy($id)
     {
         $transportation = Transport::findOrFail($id);

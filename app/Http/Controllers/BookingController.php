@@ -37,6 +37,21 @@ class BookingController extends Controller
         return response(['message' => 'You have successfully booked a car for hire.']);
     }
 
+    public function update($id)
+    {
+        $booking = Booking::find($id);
+        $booking->days = request('days');
+        $booking->cost = request('cost');
+        $booking->save();
+        return response(['message' => 'Your booking record has been updated'],200);
+    }
+
+    public function show($id)
+    {
+        $booking = Booking::find($id);
+        return response(['data' => $booking],200);
+    }
+
     public function destroy($id)
     {
         $booking = Booking::findOrFail($id);
