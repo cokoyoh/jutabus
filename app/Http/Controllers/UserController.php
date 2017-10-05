@@ -47,14 +47,6 @@ class UserController extends Controller
      */
     public function resetPassword(Request $request)
     {
-//        $validator = Validator::make($request->all, [
-//            'password' => 'required|min:6',
-//            'confirmation' => 'required|same:password',
-//        ]);
-//
-//        if($validator->fails()){
-//            return response(['data', $validator->errors()],433);
-//        }
        $request->validate([
             'password' => 'required|min:6',
             'confirmation' => 'required|same:password',

@@ -45,15 +45,15 @@ class CarController extends Controller
         return response(['message' => 'Car record updated successfully'],200);
     }
 
-    public function showCar($id)
+    public function show($id)
     {
-        $car = Car::findOrFail($id);
+        $car = Car::find($id);
         return response(['data' => $car],200);
     }
 
     public function destroy($id)
     {
-        $car = Car::findOrFail($id);
+        $car = Car::find($id);
         $car->delete();
         return response(['message' => 'Car record has been deleted'],200);
     }
