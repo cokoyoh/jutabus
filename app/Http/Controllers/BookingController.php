@@ -42,7 +42,7 @@ class BookingController extends Controller
         $booking->days = request('days');
         $booking->cost = request('cost');
         $booking->save();
-        return response(['message' => 'Your booking record has been updated'],200);
+        return response(['message' => 'Your booking record has been updated!'],200);
     }
 
     public function show($id)
